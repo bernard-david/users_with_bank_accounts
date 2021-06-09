@@ -44,19 +44,23 @@ class User:
 
     def make_deposit(self, amount):
         self.account.deposit(amount)
+        return self
 
     def make_withdrawal(self, amount):
         self.account.withdraw(amount)
+        return self
 
     def display_user_balance(self):
         print(f"User: {self.name}") 
         self.account.display_account_info()
+        return self
 
     def transfer_money(self, amount, destination):
         self.account.withdraw(amount)
         destination.account.deposit(amount)
         self.display_user_balance()
         destination.display_user_balance()
+        return self
 
 david = User("David Bernard", "dpbernard18@gmail.com")
 steph = User("Steph Rodriguez", "fakeemail@gmail.com")
